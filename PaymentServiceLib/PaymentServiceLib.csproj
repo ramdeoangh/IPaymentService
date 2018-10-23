@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{70C3D13B-D526-41B1-AB73-316C4EDA6EBE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>PaymentServiceLib</RootNamespace>
+    <AssemblyName>PaymentServiceLib</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.5.10\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enum\CardEntryType.cs" />
+    <Compile Include="Enum\CardType.cs" />
+    <Compile Include="Enum\ChequeType.cs" />
+    <Compile Include="Enum\Dialog.cs" />
+    <Compile Include="Enum\ComPortSpeed.cs" />
+    <Compile Include="Enum\EFTPOSKey.cs" />
+    <Compile Include="Enum\EFTTerminalType.cs" />
+    <Compile Include="Enum\EnumUtil.cs" />
+    <Compile Include="Enum\AccountType.cs" />
+    <Compile Include="Enum\CommsMethodType.cs" />
+    <Compile Include="Enum\InputPromptMode.cs" />
+    <Compile Include="Enum\KeyHandlingType.cs" />
+    <Compile Include="Enum\KeyMask.cs" />
+    <Compile Include="Enum\KeyPressed.cs" />
+    <Compile Include="Enum\LogLevel.cs" />
+    <Compile Include="Enum\LogonType.cs" />
+    <Compile Include="Enum\GraphicCode.cs" />
+    <Compile Include="Enum\InputType.cs" />
+    <Compile Include="Enum\NetworkType.cs" />
+    <Compile Include="Enum\PanSource.cs" />
+    <Compile Include="Enum\PayPassStatus.cs" />
+    <Compile Include="Enum\PINPadOptionFlags.cs" />
+    <Compile Include="Enum\QueryCardType.cs" />
+    <Compile Include="Enum\ReceiptPrintModeType.cs" />
+    <Compile Include="Enum\ReprintType.cs" />
+    <Compile Include="Enum\SlaveMode.cs" />
+    <Compile Include="Enum\StatusType.cs" />
+    <Compile Include="Enum\TenderType.cs" />
+    <Compile Include="Enum\TerminalApplication.cs" />
+    <Compile Include="Enum\TerminalCommsType.cs" />
+    <Compile Include="Enum\TrackFlags.cs" />
+    <Compile Include="Enum\TransactionFlag.cs" />
+    <Compile Include="Enum\TransactionType.cs" />
+    <Compile Include="Entry\IDialogUIHandler.cs" />
+    <Compile Include="Entry\TerminalUtil .cs" />
+    <Compile Include="Enum\TxnFlags.cs" />
+    <Compile Include="Model\ControlPanel.cs" />
+    <Compile Include="Model\Request\Class1.cs" />
+    <Compile Include="Model\Request\EFTChequeAuthRequest.cs" />
+    <Compile Include="Model\Request\EFTClientListRequest.cs" />
+    <Compile Include="Model\Request\EFTCloudLogonRequest.cs" />
+    <Compile Include="Model\Request\EFTConfigureMerchantRequest.cs" />
+    <Compile Include="Model\Request\EFTGetLastTransactionRequest.cs" />
+    <Compile Include="Model\Request\EFTLogonRequest.cs" />
+    <Compile Include="Model\Request\EFTQueryCardRequest.cs" />
+    <Compile Include="Model\Request\EFTReceiptRequest.cs" />
+    <Compile Include="Model\Request\EFTReprintReceiptRequest.cs" />
+    <Compile Include="Model\Request\EFTRequest.cs" />
+    <Compile Include="Model\Request\EFTSendKeyRequest.cs" />
+    <Compile Include="Model\Request\SetDialogRequest.cs" />
+    <Compile Include="Model\Response\EFTQueryCardResponse.cs" />
+    <Compile Include="Model\Response\EFTReceiptResponse.cs" />
+    <Compile Include="Model\Response\EFTResponse.cs" />
+    <Compile Include="Model\Response\SetDialogResponse.cs" />
+    <Compile Include="Model\Response\Display.cs" />
+    <Compile Include="Model\EFTBasketData.cs" />
+    <Compile Include="Model\EFTPosAsPinpad.cs" />
+    <Compile Include="Model\EFTSettlement.cs" />
+    <Compile Include="Model\EFTTransaction.cs" />
+    <Compile Include="Model\GenericCommand.cs" />
+    <Compile Include="Model\Response\EFTChequeAuthResponse.cs" />
+    <Compile Include="Model\Response\EFTClientListResponse.cs" />
+    <Compile Include="Model\Response\EFTCloudLogonResponse.cs" />
+    <Compile Include="Model\Response\EFTConfigureMerchantResponse.cs" />
+    <Compile Include="Model\Response\EFTGetLastTransactionResponse.cs" />
+    <Compile Include="Model\Response\EFTLogonResponse.cs" />
+    <Compile Include="Model\Response\EFTReprintReceiptResponse.cs" />
+    <Compile Include="PinPadPOS\Net\Class1.cs" />
+    <Compile Include="PinPadPOS\Net\ClientIPErrorType.cs" />
+    <Compile Include="PinPadPOS\Net\EFTEventArgs.cs" />
+    <Compile Include="Model\Request\ECRTransactionRequest.cs" />
+    <Compile Include="Model\Request\PINTReceiptRequest.cs" />
+    <Compile Include="Model\Response\ECRTransactionResponse.cs" />
+    <Compile Include="Model\Response\PINTReceiptResponse.cs" />
+    <Compile Include="PinPadPOS\Messaging\Logging.cs" />
+    <Compile Include="PinPadPOS\Messaging\PadField.cs" />
+    <Compile Include="PinPadPOS\Net\ConnectionException.cs" />
+    <Compile Include="PinPadPOS\Net\ITcpSocket.cs" />
+    <Compile Include="PinPadPOS\Net\ITcpSocketAsync.cs" />
+    <Compile Include="PinPadPOS\Net\SocketExtension.cs" />
+    <Compile Include="PinPadPOS\Net\TcpSocket.cs" />
+    <Compile Include="PinPadPOS\Utility\Class1.cs" />
+    <Compile Include="PinPadPOS\Utility\XMLSerializer.cs" />
+    <Compile Include="PinPadPOS\Utility\Extensions.cs" />
+    <Compile Include="PinPadPOS\Utility\Logging.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Model\Request\EFTStatusRequest.cs" />
+    <Compile Include="Model\Request\PINPADGetLastTransactionRequest.cs" />
+    <Compile Include="Model\Request\PINPADLogonRequest.cs" />
+    <Compile Include="Model\Request\PINPADTransactionRequest.cs" />
+    <Compile Include="Model\Request\PINTRequest.cs" />
+    <Compile Include="Model\Response\EFTStatusResponse.cs" />
+    <Compile Include="Model\Response\PINPADGetLastTransactionResponse.cs" />
+    <Compile Include="Model\Response\PINPADTransactionResponse.cs" />
+    <Compile Include="Model\Response\PINPADDisplayResponse.cs" />
+    <Compile Include="Model\Response\PINPADLogonResponse.cs" />
+    <Compile Include="Model\Response\PINTResponse.cs" />
+    <Compile Include="PinPadPOS\Slave\EFTSlave.cs" />
+    <Compile Include="PinPadPOS\Slave\SlaveHelper.cs" />
+    <Compile Include="PinPadPOS\Utility\DecimalExtension.cs" />
+    <Compile Include="PinPadPOS\Utility\DirectEncoding.cs" />
+    <Compile Include="PinPadPOS\Utility\Encoding.cs" />
+    <Compile Include="PinPadPOS\Utility\IntegerExtension.cs" />
+    <Compile Include="PinPadPOS\Utility\PadField.cs" />
+    <Compile Include="PinPadPOS\Utility\StringBuilderExtension.cs" />
+    <Compile Include="PinPadPOS\Utility\StringExtension.cs" />
+    <Compile Include="Util\DefaultMessageParser.cs" />
+    <Compile Include="Util\IDialogUIHandler.cs" />
+    <Compile Include="Util\IMessageParser.cs" />
+    <Compile Include="Entry\ITerminalUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DependenyInjector\DependencyInjector.csproj">
+      <Project>{fec0f3f2-aeb7-4c3b-9039-1756f48eb161}</Project>
+      <Name>DependencyInjector</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
